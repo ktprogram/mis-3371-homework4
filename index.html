@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FedMed Medical Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="fedmed-medical-high-resolution-logo-black.png" alt="FedMed Medical Logo" class="logo">
+        <div id="greeting-message"></div> <!-- Placeholder for greeting message -->
+        <h1 class="banner-title">FedMed Medical Registration Form</h1>
+        <div id="current-date" class="date-display"></div>
+    </header>    
+    <!-- <h1>FedMed Medical Registration Form</h1> -->
+    <form action="thankyou.html" method="GET">
+        <table>
+            <!-- Name and Date of Birth Section -->
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="first_name" maxlength="30" required 
+                    pattern="[A-Za-z' -]+" title="Letters, apostrophes, and dashes only."></td>
+                    <span class="error-message"></span> <!-- Error message span -->
+                <td>Middle Initial:</td>
+                <td><input type="text" name="middle_initial" maxlength="1" 
+                    pattern="[A-Za-z]" title="A single letter."></td>
+                    <span class="error-message"></span> <!-- Error message span -->
+                <td>Last Name:</td>
+                <td><input type="text" name="last_name" maxlength="30" required 
+                    pattern="[A-Za-z' -\d]{1,30}" title="Letters, apostrophes, numbers 2 to 5, and dashes."></td>
+                    <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td colspan="5">
+                    <input type="text" name="dob" required 
+                    min="1904-01-01" max="" id="dob-field" title="Enter a valid date."></td>
+                    <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <!-- Social Security Number -->
+            <tr>
+                <td>Social Security:</td>
+                <td colspan="5">
+                    <input type="password" name="ssn" maxlength="11" required>
+                    <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <!-- Address Section -->
+            <tr>
+                <td>Address Line 1:</td>
+                <td colspan="5"><input type="text" name="address1" maxlength="30" required></td>
+                <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <tr>
+                <td>Address Line 2:</td>
+                <td colspan="5"><input type="text" name="address2" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" maxlength="30" required></td>
+                <td>State:</td>
+                <td>
+                    <select name="state" required>
+                        <option value="">Select a State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <!-- Add the rest of the states, DC, and PR -->
+                    </select>
+                </td>
+                <td>Zip Code:</td>
+                <td><input type="text" name="zip" maxlength="10" required></td>
+            </tr>
+            <!-- Email -->
+            <tr>
+                <td>Email Address:</td>
+                <td colspan="5"><input type="email" name="email" required title="Enter a valid email (e.g., user@domain.com)."></td>
+                <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <!-- Phone Number -->
+            <tr>
+                <td>Phone Number:</td>
+                <td colspan="5"><input type="tel" name="phone" required pattern="\d{3}-\d{3}-\d{4}"
+                                       title="Enter phone number in the format 000-000-0000."></td>
+                                       <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <!-- Symptoms -->
+            <tr>
+                <td>Describe your current symptoms:</td>
+                <td colspan="5"><textarea name="symptoms" rows="3" cols="50" required></textarea></td>
+            </tr>
+            <!-- Checkboxes -->
+            <tr>
+                <td colspan="6">Check all that apply:</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <input type="checkbox" name="chickenpox"> Chicken Pox
+                    <input type="checkbox" name="measles"> Measles
+                    <input type="checkbox" name="covid"> Covid-19
+                    <input type="checkbox" name="smallpox"> Small Pox
+                    <input type="checkbox" name="tetanus"> Tetanus
+                </td>
+            </tr>
+            <!-- Radio Buttons -->
+            <tr>
+                <td>Gender:</td>
+                <td colspan="5">
+                    <input type="radio" name="gender" value="male" required> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+            <tr>
+                <td>Vaccinated:</td>
+                <td colspan="5">
+                    <input type="radio" name="vaccinated" value="yes" required> Yes
+                    <input type="radio" name="vaccinated" value="no"> No
+                </td>
+            </tr>
+            <tr>
+                <td>Do you have insurance?</td>
+                <td colspan="5">
+                    <input type="radio" name="insurance" value="yes" required> Yes
+                    <input type="radio" name="insurance" value="no"> No
+                </td>
+            </tr>
+            <!-- Slider -->
+            <tr>
+                <td>On a scale of 1 to 10, how sick are you?</td>
+                <td colspan="5">
+                    <input type="range" name="health_scale" id="health-slider" min="1" max="10" value="5" required oninput="updateSliderValue(this.value)">
+                    <span id="slider-value">5</span>
+                </td>
+            </tr>
+            
+            <!-- User ID and Password -->
+            <tr>
+                <td>Desired User ID:</td>
+                <td colspan="5"><input type="text" name="user_id" maxlength="20" required></td>
+                <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td colspan="5"><input type="password" name="password" maxlength="20" required></td>
+                <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+            <tr>
+                <td>Re-enter Password:</td>
+                <td colspan="5"><input type="password" name="confirm_password" maxlength="20" required></td>
+                <span class="error-message"></span> <!-- Error message span -->
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <label>
+                        <input type="checkbox" id="remember-me" checked>
+                        Remember Me
+                    </label>
+                </td>
+            </tr>
+            
+        </table>
+
+        <!-- iFrame -->
+        <section>
+            <h2>CDC Health Resource</h2>
+            <p>Below is the CDC website for you to learn more about your health:</p>
+            <iframe 
+                src="https://www.cdc.gov/" 
+                width="100%" 
+                height="400" 
+                style="border: 1px solid #ccc;" 
+                title="CDC Health Resources">
+            </iframe>
+            <p>
+                Visit the <a href="https://www.cdc.gov/" target="_blank">CDC website</a> for more information on health and safety.
+            </p>
+        </section>
+
+
+        <!-- Buttons -->
+        <input type="reset" value="CLEAR AND START OVER">
+        <input type="button" id="review-btn" value="Review"> <!-- New Review button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Review Area -->
+    <div id="review-area" style="display:none; border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+        <h2>Review Your Information</h2>
+        <p id="review-output"></p> <!-- This is where the user's input will be displayed -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Need help? <button onclick="alert('Contact us at support@healthcare.com')">Contact Us</button></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
