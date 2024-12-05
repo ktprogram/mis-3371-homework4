@@ -1,0 +1,8 @@
+This is my synopsis for Assignment 4 and it is for my website FedMed Medical, which is a healthcare facility that is like a hospital. 
+This is just a basic form, as I want to have the design more colorful and better on the eyes for an average person, however, that is something I don’t really know how to do. 
+Of course I would like to improve, but right now, this is something I am proud of and the Javascript work I did was also good in my humble opinion. 
+I will continue to work on it and make it more polished. My website is going to have a more dynamic background that changes, however, the more I thought about it, 
+the less it made sense for a healthcare facility. As the users, would not care as they are there to register for a health check up. 
+I am pretty proud of what I did, as I learned a lot of things that I used in the JavaScript. There were things I want to do such as the design, however things came up throughout the 
+semester that took some time for me away from school, but overall the website works the way I intended and I learned a lot through it. I will continue to work on this assignment
+after this class ends and use a lot of the aspects I learned on different projects and grow my knowledge on this. 
